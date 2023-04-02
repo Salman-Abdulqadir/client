@@ -1,5 +1,8 @@
 import React from "react";
 
+// react router
+import { Link, useLocation } from "react-router-dom";
+
 // react icons
 import { AiOutlineBook, AiOutlineQuestion, AiOutlineSearch } from "react-icons/ai";
 import { GoHome } from "react-icons/go";
@@ -9,8 +12,9 @@ import { AiOutlineProject } from "react-icons/ai";
 
 // styled components
 import styled from "styled-components";
-
 const Nav = () => {
+  const location = useLocation().pathname;
+
   return (
     <StyledNav className="flex-col">
       <h1>
@@ -18,28 +22,42 @@ const Nav = () => {
       </h1>
       <ul>
         <h2>General</h2>
-        <li className="active">
-          <GoHome /> My Profile
+        <li className={location === "/" ? "active" : ""}>
+          <Link to={"/"}>
+            <GoHome /> My Profile
+          </Link>
         </li>
-        <li>
-          <AiOutlineSearch/> Search
+        <li className={location === "/search" ? "active" : ""}>
+          <Link to={'/search'}>
+            <AiOutlineSearch /> Search{" "}
+          </Link>
         </li>
-        <li>
-          <AiOutlineProject /> Projects
+        <li className={location === "/projects" ? "active" : ""}>
+          <Link to={'/projects'}>
+            <AiOutlineProject /> Projects{" "}
+          </Link>
         </li>
-        <li>
-          <AiOutlineBook /> Book Biding
+        <li className={location === "/book-biding" ? "active" : ""}>
+          <Link to={'/book-biding'}>
+            <AiOutlineBook /> Book Biding{" "}
+          </Link>
         </li>
-        <li>
-          <AiOutlineQuestion /> Q&A
+        <li className={location === "/questions" ? "active" : ""}>
+          <Link to={'/questions'}>
+            <AiOutlineQuestion /> Q&A
+          </Link>
         </li>
-        <li>
-          <TfiWrite /> Blogs
+        <li className={location === "/blogs" ? "active" : ""}>
+          <Link to={'/blogs'}>
+            <TfiWrite /> Blogs
+          </Link>
         </li>
         <h2>Settings</h2>
 
-        <li>
-          <VscAccount /> Account
+        <li className={location === "/account" ? "active" : ""}>
+          <Link to={'/account'}>
+            <VscAccount /> Account
+          </Link>
         </li>
       </ul>
     </StyledNav>

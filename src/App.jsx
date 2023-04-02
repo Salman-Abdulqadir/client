@@ -12,7 +12,7 @@ function App() {
     <div className="App flex">
       <Nav/>
       <Routes>
-        <Route path="/profile" element={<ProfilePage/>}/>
+        <Route path="/" element={<ProfilePage/>}/>
       </Routes>
     </div>
   );

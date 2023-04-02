@@ -16,6 +16,9 @@ export default createGlobalStyle`
     p{
         color: grey;
     }
+    button, input{
+        font-family: inherit;
+    }
 
     .flex, .flex-col{
         display: flex;
