@@ -3,6 +3,7 @@ import styled from "styled-components"
 export const StyledNav = styled.div`
   background-color: white;
   min-height: 100vh;
+  min-width: fit-content;
   padding: 2rem;
   gap: 2rem;
 

@@ -20,6 +20,13 @@ export default createGlobalStyle`
     h1{
         font-size: 2rem;
     }
+    h4, h5{
+        font-size: 1.5rem;
+        font-weight: normal;
+    }
+    h4{
+        font-size: 1rem;
+    }
     span{
         color: var(--primary);
     }
@@ -45,16 +52,11 @@ export default createGlobalStyle`
     .flex-col{
         flex-direction: column;
     }
-    .column{
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-    }
-    .column-md{
-        width: 40%;
-    }
-     .column-sm{
-        width: 20%;
+    .container{
+          background-color: white;
+  color: black;
+  border-radius: 1rem;
+  padding: 2rem;
     }
     .App{
         align-items: flex-start;

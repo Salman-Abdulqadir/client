@@ -12,7 +12,7 @@ const WelcomeCard = () => {
     <>
       <StyledCard className="flex">
           <h1>
-            Welcome Back, <span>Ashley</span>
+            Welcome Back, <br /><span>Ashley</span>
           </h1>
         <img src={profileStudying} alt="" />
       </StyledCard>
