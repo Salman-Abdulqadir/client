@@ -1,17 +1,16 @@
 import styled from "styled-components";
 
 export const StyledProfile = styled.div`
-    margin: 3rem;
+    margin: 2rem;
 `
 export const StyledCard = styled.div`
     background-color: white;
     color: black;
     border-radius: 1rem;
-    box-shadow: 10px 10px 20px lightgray;
-    padding: 3rem;
-    max-width: 50%;
-    img{
-        width: 15rem;
+    padding: 2rem;
+    width: fit-content;
+    overflow: hidden;
+    h1{
+        flex: 1;
     }
-
 `

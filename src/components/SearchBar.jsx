@@ -7,15 +7,21 @@ import {AiOutlineSearch} from 'react-icons/ai'
 
 const SearchBar = () => {
   return (
-    <div>
-        <input type="text" placeholder='search'/>
+    <StyledSearch>
+        <input type="text" placeholder='search...'/>
         <button><AiOutlineSearch/></button>
-    </div>
+    </StyledSearch>
   )
 }
 
 const StyledSearch = styled.div`
-    
+    display: flex;
+    input{
+      width: 100%;
+    }
+    button{
+      background-color: white;
+    }
 `
 
 export default SearchBar
