@@ -13,6 +13,9 @@ export const StyledNav = styled.div`
     gap: 2rem;
     .link {
       display: block;
+      display: flex;
+      gap: 10px;
+      align-items: center;
       width: 100%;
       text-decoration: none;
       color: black;

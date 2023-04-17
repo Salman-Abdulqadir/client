@@ -6,6 +6,7 @@ export default createGlobalStyle`
     --secondary: #e0ddfc;
     --darkgrey: #d9d9d9;
     --lightgrey: #f6f6f6;
+    --red: 	tomato
 
 }
     *{
@@ -21,11 +22,11 @@ export default createGlobalStyle`
         font-size: 2rem;
     }
     h4, h5{
-        font-size: 1.5rem;
+        font-size: 1rem;
         font-weight: normal;
     }
-    h4{
-        font-size: 1rem;
+    h6{
+        color: var(--primary);
     }
     span{
         color: var(--primary);
@@ -51,14 +52,72 @@ export default createGlobalStyle`
     }
     .flex-col{
         flex-direction: column;
+        align-items: flex-start;
     }
     .container{
           background-color: white;
-  color: black;
-  border-radius: 1rem;
-  padding: 2rem;
+            color: black;
+            border-radius: 1rem;
+            padding: 2rem;
+            height: 55vh;
+        overflow-y: scroll;
+        ::-webkit-scrollbar {
+            width: 7px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            border-radius: 5px;
+            background-color: var(--secondary);
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 10px;
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--secondary);
+        }
     }
     .App{
         align-items: flex-start;
+    }
+    .tag-btn{
+        background-color: var(--darkgrey);
+        border-radius: 10px;
+        padding: 0.5rem 0.75rem;
+    }
+    .purple-btn, .light-btn, .red-btn{
+        border-radius: 10px;
+        padding: 0.75rem 1rem;
+        color: white;
+        background-color: var(--primary);
+        border: 2px solid transparent;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+    .purple-btn:hover{
+        background-color: var(--secondary);
+        border: 2px solid var(--primary);
+        color: var(--primary);
+    }
+    .red-btn{
+        background-color: var(--red);
+    }
+    .red-btn:hover{
+        background-color: var(--lightgrey);
+        border: 2px solid var(--red);
+        color: var(--red);
+    }
+    .light-btn{
+        background-color: var(--secondary);
+        border: 2px solid var(--primary);
+        color: var(--primary);
+        &:hover{
+            background-color: var(--lightgrey);
+        }
     }
 `;

@@ -8,15 +8,12 @@ import ProfileComponent from "./ProfileComponent";
 import {
   AiOutlineBook,
   AiOutlineQuestion,
-  AiOutlineSearch,
 } from "react-icons/ai";
 import { GoHome } from "react-icons/go";
 import { TfiWrite } from "react-icons/tfi";
-import { VscAccount } from "react-icons/vsc";
 import { AiOutlineProject } from "react-icons/ai";
 
 // styled components
-import styled from "styled-components";
 import { StyledNav } from "../styles/NavStyles";
 
 const Nav = () => {
@@ -62,7 +59,7 @@ const Nav = () => {
           className={location === "/account" ? "link active" : "link"}
           to={"/account"}
         >
-          <ProfileComponent profile={{firstname:"Haben"}}/>
+          <ProfileComponent name={"Haben"}/>
         </Link>
       </ul>
     </StyledNav>

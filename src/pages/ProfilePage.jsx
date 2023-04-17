@@ -8,6 +8,9 @@ import WelcomeCard from "../components/WelcomeCard";
 import SearchBar from "../components/SearchBar";
 import Stats from "../components/Stats";
 import Badges from "../components/Badges";
+import Blogs from "../components/Blogs";
+import Projects from "../components/Projects";
+import SuggestedUsers from "../components/SuggestedUsers";
 
 const ProfilePage = () => {
   return (
@@ -18,9 +21,15 @@ const ProfilePage = () => {
       </div>
       <Stats className="stats" />
       <Badges className="badges"/>
-      <div className="blogs container"></div>
-      <div className="projects container"></div>
-      <div className="users container"></div>
+      <div className="blogs container">
+        <Blogs/>
+      </div>
+      <div className="projects container">
+        <Projects/>
+      </div>
+      <div className="users container">
+        <SuggestedUsers/>
+      </div>
     </StyledProfile>
   );
 };

@@ -14,14 +14,14 @@ const Stats = () => {
     <StyledStat>
       <h3>Stats</h3>
       <div className="flex">
-        <div className="stats">
+        <div className="stat">
           {stats.map((data, index) => (
             <h4 key={index}>
               {data.count} <br /> {data.name}
             </h4>
           ))}
         </div>
-        <ResponsiveContainer width={350} height={200}>
+        <ResponsiveContainer width="100%" height={150}>
           <BarChart data={stats}>
             <Bar dataKey="count" fill="var(--primary)" />
             <XAxis dataKey="name" />

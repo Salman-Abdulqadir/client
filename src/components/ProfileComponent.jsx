@@ -1,13 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const ProfileComponent = ({profile}) => {
+const ProfileComponent = ({name}) => {
   return (
     <StyledProfile className='flex'>
-        <div className="icon">{profile?.firstname[0]}</div>
-        <h4>{profile?.firstname}</h4>
+        <div className="icon">{name[0]}</div>
+        <h4>{name}</h4>
     </StyledProfile>
   )
+}
+const generateColor = () => {
+    const color = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+     return color;
 }
 
 const StyledProfile = styled.div`
@@ -16,7 +20,7 @@ width: 100%;
         font-size: 1rem;
         padding: 1rem;
         border-radius: 50%;
-        background-color: var(--primary);
+        background-color: ${generateColor()} ;
         color: white;
     }
 `

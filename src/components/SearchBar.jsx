@@ -16,7 +16,7 @@ const SearchBar = () => {
 
 const StyledSearch = styled.div`
     display: flex;
-    margin-bottom: 1.5rem;
+    flex: 1.5;
     input{
       width: 100%;
     }
