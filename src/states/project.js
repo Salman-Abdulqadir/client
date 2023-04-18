@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   isProjectDetails: false,
-  popup: false
+  popup: false,
 };
 
 const projectSlice = createSlice({
@@ -14,9 +14,6 @@ const projectSlice = createSlice({
     },
     togglePopup: (state) => {
         state.popup = !state.popup
-    },
-    incrementByAmount: (state, action) => {
-      state.value += action.payload;
     },
   },
 });

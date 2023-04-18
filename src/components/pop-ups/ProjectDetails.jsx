@@ -1,51 +1,35 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React, {useEffect} from "react";
+import { useNavigate} from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import {filterApplicants} from "../../states/projectDetails"
 
 import styled from "styled-components";
 
 import { GoDesktopDownload,  } from "react-icons/go";
 import {AiOutlineClose} from "react-icons/ai"
 
+import Error from "../Error";
 
 
 const ProjectDetails = () => {
-  const project = {
-    projectId: "E23KDS34",
-    topic: "Interesting Project",
-    description:
-      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque dolorem accusamus, tempore eligendi enim nesciunt pariatur distinctio incidunt quibusdam sapiente molestiae, nam, architecto cupiditate facilis? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque dolorem accusamus, tempore eligendi enim nesciunt pariatur distinctio incidunt quibusdam sapiente molestiae, nam, architecto cupiditate facilis?",
-    postedBy: "Ahmed",
-    createdAt: "11-11-2023",
-    deadline: "12-12-2023",
-    skillset: ["python", "economy"],
-    tags: [
-      "programming",
-      "business",
-      "software",
-      "programming",
-      "business",
-      "software",
-    ],
-    applicants: [
-      {
-        applicant: "haben",
-        status: "new",
-      },
-      {
-        applicant: "haben",
-        status: "selected",
-      },
-      {
-        applicant: "haben",
-        status: "not selected",
-      },
-      {
-        applicant: "haben",
-        status: "new",
-      },
-    ],
-  };
+  const project = useSelector((state) => state.projectDetails.details);
+  const filteredApplicants = useSelector((state) => state.projectDetails.filteredApplicants);
 
+  
+  // using useNavigate to close the pop up and navigate back to teh projects page
+  const navigate = useNavigate();
+
+  const dispatch = useDispatch();
+  // removing the filters when the component is rendered for the first time
+  useEffect(()=>{
+    dispatch(filterApplicants("all"))
+  },[])
+
+  // filter handler
+  const filterHandler = (e) => {
+    dispatch(filterApplicants(e.target.value))
+  }
+  
   // rendering buttons based on the status of the applicant
   const renderAction = (status) => {
     if (status === "new")
@@ -55,22 +39,24 @@ const ProjectDetails = () => {
           <button className="red-btn"> delete</button>
         </div>
       );
-    else if (status === "selected")
+      else if (status === "selected")
       return <button className="red-btn"> delete</button>;
-    else return <button className="light-btn">select</button>;
-  };
-
-  // using useNavigate to close the pop up and navigate back to teh projects page
-  const navigate = useNavigate();
+      else return <button className="light-btn">select</button>;
+    };
+    
+    if (project.length === 0) return <Error/>;
   return (
     <StyledDetails>
       <div className="container">
-        <button className="light-btn close" onClick={()=> navigate("/projects")}>
+        <button
+          className="light-btn close"
+          onClick={() => navigate("/projects")}
+        >
           <AiOutlineClose />
         </button>
         <div className="project flex">
           <div className="flex-col">
-            <h3>{project.topic}</h3>
+            <h3>{project.topic.toUpperCase()}</h3>
             <p>{project.description}</p>
           </div>
           <div className="flex-col">
@@ -79,7 +65,7 @@ const ProjectDetails = () => {
             </h3>
             <h3>Related to:</h3>
             <div className="tags">
-              {project.tags.map((tag, index) => (
+              {project?.tags?.map((tag, index) => (
                 <button key={index} className="tag-btn">
                   {tag}
                 </button>
@@ -90,10 +76,11 @@ const ProjectDetails = () => {
         <button className="purple-btn">Edit</button>
         <div className="applicants">
           <div className="flex">
-            <h3>Applicants ({project.applicants.length})</h3>
+            <h3>Applicants ({filteredApplicants?.length})</h3>
             <div className="filter">
               <label htmlFor="applicant">Filter by:</label>
-              <select name="applicant">
+              <select name="applicant" onChange={filterHandler}>
+                <option value="all">All</option>
                 <option value="new">New</option>
                 <option value="selected">Selected</option>
                 <option value="not selected">Not Selected</option>
@@ -107,7 +94,7 @@ const ProjectDetails = () => {
               <th>Attachement</th>
               <th>Actions</th>
             </tr>
-            {project.applicants.map((applicant, index) => (
+            {filteredApplicants?.map((applicant, index) => (
               <tr key={index}>
                 <td>{applicant.applicant}</td>
                 <td>{applicant.status}</td>

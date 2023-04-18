@@ -15,7 +15,7 @@ const ProjectItem = ({project}) => {
         <h4>{project.topic}</h4>
         <p>{project.description}</p>
         <h4>Related to:</h4>
-        <div className="flex">
+        <div className="grid">
             {project.tags.map((tag, index) => <button key={index} className='tag-btn'>{tag}</button>)}
         </div>
     </StyledProjectItem>
@@ -33,6 +33,11 @@ const StyledProjectItem = styled.div`
     h4{
         font-size: 1rem;
         font-weight: bold;
+    }
+    .grid{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
     }
 `
 

@@ -1,30 +1,27 @@
 import React from "react";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 // redux
-// import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import {setProjectDetails} from "../states/projectDetails"
+
 // components
 import SearchBar from "../components/SearchBar";
 import Projects from "../components/Projects";
 // import ProjectDetails from "../components/pop-ups/ProjectDetails";
 
+//demo
+import { projectData} from "../data/projectData";
 const ProjectPage = () => {
-    const projects = [
-      { topic: "Market Analysis and Expansion Strategy", applicants: 34 },
-      { topic: "Market Analysis and Expansion Strategy", applicants: 34 },
-      { topic: "Market Analysis and Expansion Strategy", applicants: 34 },
-      { topic: "Market Analysis and Expansion Strategy", applicants: 34 },
-      { topic: "Market Analysis and Expansion Strategy", applicants: 34 },
-      { topic: "Market Analysis and Expansion Strategy", applicants: 34 },
-      { topic: "Market Analysis and Expansion Strategy", applicants: 34 },
-      { topic: "Market Analysis and Expansion Strategy", applicants: 34 },
-      { topic: "Market Analysis and Expansion Strategy", applicants: 34 },
-      { topic: "Market Analysis and Expansion Strategy", applicants: 34 },
-      { topic: "Market Analysis and Expansion Strategy", applicants: 34 },
-      { topic: "Market Analysis and Expansion Strategy", applicants: 34 },
-      { topic: "Market Analysis and Expansion Strategy", applicants: 34 },
-    ];
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
+    const showProjectDetails = (project) => {
+        console.log("working")
+        dispatch(setProjectDetails(project))
+        navigate(`/projects/${project.projectId}`)
+    }
     // const popup = useSelector((state) => state.project.popup)
   return (
     <StyledProjectPage>
@@ -45,14 +42,14 @@ const ProjectPage = () => {
               <th>Applicant</th>
               <th>Action</th>
             </tr>
-            {projects.map((project, index) => (
+            {projectData.map((project, index) => (
               <tr key={index}>
                 <td>{project.topic}</td>
                 <td>
-                  <h6>{project.applicants}</h6>
+                  <h6>{project.applicants.length}</h6>
                 </td>
                 <td>
-                  <button className="purple-btn">View</button>
+                  <button className="purple-btn" onClick={() => showProjectDetails(project)}>View</button>
                 </td>
               </tr>
             ))}

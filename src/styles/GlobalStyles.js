@@ -105,12 +105,14 @@ export default createGlobalStyle`
         color: var(--primary);
     }
     .red-btn{
-        background-color: var(--red);
-    }
-    .red-btn:hover{
+        background-color: var(--lightgrey);
         background-color: var(--lightgrey);
         border: 2px solid var(--red);
         color: var(--red);
+        &:hover{
+            background-color: var(--red);
+            color: white;
+        }
     }
     .light-btn{
         background-color: var(--secondary);
