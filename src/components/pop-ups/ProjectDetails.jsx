@@ -111,7 +111,7 @@ const ProjectDetails = () => {
   );
 };
 
-const StyledDetails = styled.div`
+export const StyledDetails = styled.div`
   min-height: 100vh;
   width: 100vw;
   background-color: #00000059;
