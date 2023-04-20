@@ -13,7 +13,7 @@ const applicationSlice = createSlice({
     reducers: {
         setApplications: (state, action) => {
             state.applications = action.payload
-            state.filterApplications = state.applications
+            state.filteredApplications = state.applications
         },
         filterApplications: (state, action) => {
             state.filter = action.payload;
@@ -29,10 +29,13 @@ const applicationSlice = createSlice({
         searchApplications: (state, action) => {
             state.searchQuery = action.payload
             state.filteredApplications = state.applications.filter((application) => {
-                for(let i in Object.values(application)){
-                    if (i.includes(state.searchQuery))
+                // for(let i in Object.values(application)){
+                //     if (i.includes(state.searchQuery))
+                //         return application
+                // }
+                if (application.topic.toLowerCase().includes(state.searchQuery.toLowerCase()))
                         return application
-                }
+                return false
             })
 
         }

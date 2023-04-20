@@ -8,6 +8,8 @@ import ProjectPage from "./pages/ProjectPage";
 //popups
 import ProjectDetails from "./components/pop-ups/ProjectDetails";
 import Applications from "./components/pop-ups/Applications";
+import CreateProject from "./components/pop-ups/CreateProject";
+import ApplyProject from "./components/pop-ups/ApplyProject";
 
 // error
 import Error from "./components/Error";
@@ -22,8 +24,10 @@ function App() {
       <Routes>
         <Route path="/" element={<ProfilePage/>}/>
         <Route path="/projects" element={<ProjectPage/>}/>
+        <Route path="/projects/apply/:id" element={<ApplyProject/>}/>
         <Route path="/projects/:id" element={<ProjectDetails/>}/>
         <Route path="/applications" element={<Applications/>}/>
+        <Route path="/create-project" element={<CreateProject/>}/>
         <Route path="/notfound" element={<Error/>}/>
       </Routes>
     </div>

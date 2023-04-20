@@ -34,8 +34,9 @@ export default createGlobalStyle`
     p{
         color: grey;
     }
-    button, input{
+    button, input, textarea{
         font-family: inherit;
+        background-color: var(--lightgrey);
         padding: 0.75rem 1rem;
         border-radius: 10px;
         border: none;

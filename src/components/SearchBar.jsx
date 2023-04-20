@@ -14,14 +14,17 @@ const SearchBar = () => {
   )
 }
 
-const StyledSearch = styled.div`
+export const StyledSearch = styled.div`
     display: flex;
     flex: 1.5;
     input{
       width: 100%;
+      background-color: white;
     }
     button{
       background-color: white;
+      border-bottom-left-radius: 0;
+      border-top-left-radius: 0;
     }
 `
 

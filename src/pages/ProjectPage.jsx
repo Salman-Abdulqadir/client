@@ -29,8 +29,8 @@ const ProjectPage = () => {
       <div className="search">
         <SearchBar className="searchbar" />
         <div className="flex">
-          <button className="light-btn">My Applications</button>
-          <button className="purple-btn">+ Create Project</button>
+          <button className="light-btn" onClick={()=> navigate("/applications")}>My Applications</button>
+          <button className="purple-btn" onClick={()=> navigate("/create-project")}>+ Create Project</button>
         </div>
       </div>
       <div className="flex">
