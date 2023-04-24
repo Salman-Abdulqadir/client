@@ -35,6 +35,7 @@ export default createGlobalStyle`
         color: grey;
     }
     button, input, textarea{
+        cursor: pointer;
         font-family: inherit;
         background-color: var(--lightgrey);
         padding: 0.75rem 1rem;

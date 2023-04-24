@@ -4,6 +4,7 @@ import Nav from "./components/Nav";
 // pages
 import ProfilePage from "./pages/ProfilePage";
 import ProjectPage from "./pages/ProjectPage";
+import QuestionsPage from "./pages/QuestionsPage";
 
 //popups
 import ProjectDetails from "./components/pop-ups/ProjectDetails";
@@ -28,6 +29,7 @@ function App() {
         <Route path="/projects/:id" element={<ProjectDetails/>}/>
         <Route path="/applications" element={<Applications/>}/>
         <Route path="/create-project" element={<CreateProject/>}/>
+        <Route path="/questions" element={<QuestionsPage/>}/>
         <Route path="/notfound" element={<Error/>}/>
       </Routes>
     </div>
