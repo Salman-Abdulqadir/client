@@ -6,7 +6,24 @@ import ProfileComponent from "./ProfileComponent";
 // styles
 import styled from "styled-components";
 
+// redux
+import { useDispatch } from "react-redux";
+import { setQuestion, askOpenai } from "../states/answerDetails";
+
+// router
+import { useNavigate } from "react-router-dom";
+
 const QuestionItem = ({ question }) => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const answerHandler = async () => {
+    dispatch(setQuestion(question));
+
+    // sending a request to open ai
+    let questionPrompt = question.title + " " + question.content;
+    await dispatch(askOpenai(questionPrompt));
+    navigate(`/questions/${question.id}`);
+  };
   return (
     <StyledQuestion className="flex">
       <div className="flex-col votes">
@@ -14,7 +31,7 @@ const QuestionItem = ({ question }) => {
         <h4>{question?.answers?.length} Answers</h4>
       </div>
       <div className="flex-col">
-        <h2>{question.title}</h2>
+        <h2 onClick={answerHandler}>{question.title}</h2>
         <p>{question.content}</p>
         <div className="flex info">
           <div className="flex">
@@ -33,9 +50,16 @@ const QuestionItem = ({ question }) => {
 };
 
 const StyledQuestion = styled.div`
-  gap: 5rem;
+  gap: 5rem !important;
   border-bottom: 2px solid var(--darkgrey);
   padding: 1.5rem;
+  h2 {
+    transition: color 0.5s ease;
+    cursor: pointer;
+    &:hover {
+      color: var(--primary);
+    }
+  }
   h4 {
     min-width: fit-content;
     font-weight: bold;
@@ -47,7 +71,9 @@ const StyledQuestion = styled.div`
     width: 100%;
     justify-content: space-between;
   }
-  
+  .question{
+    border-bottom: 2px solid var(--primary);
+  }
 `;
 
 export default QuestionItem;

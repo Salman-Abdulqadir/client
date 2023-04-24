@@ -4,6 +4,7 @@ const initialState = {
   questions: [],
   filter: "",
   filteredQuestions: [],
+  askQuestion: false
 };
 
 const questionsSlice = createSlice({
@@ -22,8 +23,11 @@ const questionsSlice = createSlice({
       }
       
     },
+    toggleAsk: (state) => {
+      state.askQuestion = !state.askQuestion
+    }
   },
 });
 
-export const {setQuestions, filterQuestions} = questionsSlice.actions
+export const {setQuestions, filterQuestions, toggleAsk} = questionsSlice.actions
 export default questionsSlice.reducer

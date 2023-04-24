@@ -4,7 +4,7 @@ const initialState = {
     applications: [],
     filteredApplications: [],
     filter: "all",
-    searchQuery: ""
+    searchQuery: "",
 }
 
 const applicationSlice = createSlice({

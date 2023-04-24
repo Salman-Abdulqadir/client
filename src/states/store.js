@@ -6,6 +6,7 @@ import projectReducer from "./project"
 import projectDetailsReducer from "./projectDetails"
 import applicationReducer from "./application"
 import questionReducer from "./questions"
+import answerDetailsReducer from "./answerDetails"
 
 export const store = configureStore({
   reducer: {
@@ -13,6 +14,7 @@ export const store = configureStore({
     project: projectReducer,
     projectDetails: projectDetailsReducer,
     application: applicationReducer,
-    questions: questionReducer
+    questions: questionReducer,
+    answerDetails: answerDetailsReducer
   },
 });

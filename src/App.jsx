@@ -1,5 +1,6 @@
 // components
 import Nav from "./components/Nav";
+import Answer from "./pages/AnswerPage";
 
 // pages
 import ProfilePage from "./pages/ProfilePage";
@@ -21,16 +22,17 @@ import { Routes, Route } from "react-router-dom";
 function App() {
   return (
     <div className="App flex">
-      <Nav/>
+      <Nav />
       <Routes>
-        <Route path="/" element={<ProfilePage/>}/>
-        <Route path="/projects" element={<ProjectPage/>}/>
-        <Route path="/projects/apply/:id" element={<ApplyProject/>}/>
-        <Route path="/projects/:id" element={<ProjectDetails/>}/>
-        <Route path="/applications" element={<Applications/>}/>
-        <Route path="/create-project" element={<CreateProject/>}/>
-        <Route path="/questions" element={<QuestionsPage/>}/>
-        <Route path="/notfound" element={<Error/>}/>
+        <Route path="/" element={<ProfilePage />} />
+        <Route path="/projects" element={<ProjectPage />} />
+        <Route path="/projects/apply/:id" element={<ApplyProject />} />
+        <Route path="/projects/:id" element={<ProjectDetails />} />
+        <Route path="/applications" element={<Applications />} />
+        <Route path="/create-project" element={<CreateProject />} />
+        <Route path="/questions" element={<QuestionsPage />} />
+        <Route path="/questions/:id" element={<Answer />} />
+        <Route path="/notfound" element={<Error />} />
       </Routes>
     </div>
   );

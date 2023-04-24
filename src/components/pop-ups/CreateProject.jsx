@@ -31,7 +31,7 @@ const CreateProject = () => {
   );
 };
 
-const StyledForm = styled.form`
+export const StyledForm = styled.form`
     #title{
         grid-area: title;
     }

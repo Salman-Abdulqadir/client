@@ -3,35 +3,34 @@ import React, { useEffect } from "react";
 // components
 import QuestionItem from "../components/QuestionItem";
 import SearchBar from "../components/SearchBar";
+import AskQuestion from "../components/pop-ups/AskQuestion";
 //styles
 import styled from "styled-components";
 
 //redux
 import { useSelector, useDispatch } from "react-redux";
-import { filterQuestions, setQuestions } from "../states/questions";
+import { setQuestions, toggleAsk } from "../states/questions";
 
-// router
-import { useNavigate } from "react-router-dom";
 
 // demo data
 import { questionData } from "../data/questionData";
 
 const QuestionsPage = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(setQuestions(questionData));
   }, []);
 
-  const { filteredQuestions, filter } = useSelector((state) => state.questions);
+  const { filteredQuestions, filter, askQuestion } = useSelector((state) => state.questions);
   return (
     <StyledQuestions>
+      {askQuestion && <AskQuestion/>}
       <header className="flex">
         <h1>All Questions</h1>
         <div className="flex">
           <SearchBar />
-          <button className="purple-btn">Ask Question</button>
+          <button onClick={()=> dispatch(toggleAsk())} className="purple-btn">Ask Question</button>
         </div>
       </header>
       <div className="questions container">
@@ -60,7 +59,7 @@ const QuestionsPage = () => {
   );
 };
 
-const StyledQuestions = styled.div`
+export const StyledQuestions = styled.div`
   padding: 2rem;
   width: 100%;
   header {
