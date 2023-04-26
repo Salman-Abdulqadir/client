@@ -1,5 +1,4 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 
 import { StyledPopup } from "../../styles/PopupStyles";
 import styled from "styled-components";
@@ -11,7 +10,6 @@ import { toggleAsk } from "../../states/questions";
 import { AiOutlineClose } from "react-icons/ai";
 
 const AskQuestion = () => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   return (

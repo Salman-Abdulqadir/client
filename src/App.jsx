@@ -6,6 +6,9 @@ import Answer from "./pages/AnswerPage";
 import ProfilePage from "./pages/ProfilePage";
 import ProjectPage from "./pages/ProjectPage";
 import QuestionsPage from "./pages/QuestionsPage";
+import BlogPage from "./pages/BlogPage";
+import BooksPage from "./pages/BooksPage";
+
 
 //popups
 import ProjectDetails from "./components/pop-ups/ProjectDetails";
@@ -18,6 +21,7 @@ import Error from "./components/Error";
 
 // react router
 import { Routes, Route } from "react-router-dom";
+import BookDetails from "./pages/BookDetails";
 
 function App() {
   return (
@@ -32,6 +36,9 @@ function App() {
         <Route path="/create-project" element={<CreateProject />} />
         <Route path="/questions" element={<QuestionsPage />} />
         <Route path="/questions/:id" element={<Answer />} />
+        <Route path="/blogs" element={<BlogPage />} />
+        <Route path="/books" element={<BooksPage />} />
+        <Route path="/books/:id" element={<BookDetails />} />
         <Route path="/notfound" element={<Error />} />
       </Routes>
     </div>

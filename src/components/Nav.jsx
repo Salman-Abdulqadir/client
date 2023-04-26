@@ -43,10 +43,10 @@ const Nav = () => {
         </Link>
 
         <Link
-          className={location === "/book-biding" ? "active link" : "link"}
-          to={"/book-biding"}
+          className={location === "/books" ? "active link" : "link"}
+          to={"/books"}
         >
-          <AiOutlineBook /> Book Biding{" "}
+          <AiOutlineBook /> Books{" "}
         </Link>
         <Link
           className={location === "/blogs" ? "active link" : "link"}

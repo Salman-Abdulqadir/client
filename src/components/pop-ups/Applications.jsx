@@ -26,7 +26,7 @@ const Applications = () => {
 
   useEffect(() => {
     dispatch(setApplications(applicationData));
-  }, []);
+  }, [dispatch]);
 
   const { filteredApplications} = useSelector(
     (state) => state.application

@@ -1,4 +1,3 @@
-import { upload } from "@testing-library/user-event/dist/upload";
 import React from "react";
 import styled from "styled-components";
 
@@ -35,6 +34,7 @@ const StyledUploader = styled.form`
   }
   h3{
     font-weight: normal;
+    text-align: center;
     span{
         font-size: inherit;
         font-weight: bold;

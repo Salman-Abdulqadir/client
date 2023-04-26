@@ -20,7 +20,7 @@ const QuestionsPage = () => {
 
   useEffect(() => {
     dispatch(setQuestions(questionData));
-  }, []);
+  }, [dispatch]);
 
   const { filteredQuestions, filter, askQuestion } = useSelector((state) => state.questions);
   return (

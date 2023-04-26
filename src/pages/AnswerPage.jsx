@@ -4,7 +4,7 @@ import React from "react";
 import { StyledQuestions } from "./QuestionsPage";
 import styled from "styled-components";
 // redux
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector} from "react-redux";
 
 // router
 import { useNavigate } from "react-router-dom";
@@ -12,14 +12,12 @@ import { useNavigate } from "react-router-dom";
 import { BiArrowBack } from "react-icons/bi";
 
 //components
-import ProfileComponent from "../components/ProfileComponent";
 import AnswerItem from "../components/AnswerItem";
 import AnsweredQuestion from "../components/AnsweredQuestion";
 import OpenaiResponse from "../components/OpenaiResponse";
 
 const Answer = () => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
 
   const { question } = useSelector((state) => state.answerDetails);
 

@@ -23,7 +23,7 @@ const ProjectDetails = () => {
   // removing the filters when the component is rendered for the first time
   useEffect(()=>{
     dispatch(filterApplicants("all"))
-  },[])
+  },[dispatch])
 
   // filter handler
   const filterHandler = (e) => {
