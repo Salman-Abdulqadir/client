@@ -1,10 +1,13 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { toggleIsBid } from "../states/bookDetails";
 
 // components
 import SearchBar from "../components/SearchBar";
 import RelatedBooks from "../components/RelatedBooks";
+import BidingPanel from "../components/pop-ups/BidingPanel";
+
 // styles
 import styled from "styled-components";
 
@@ -14,10 +17,13 @@ import { BsHandThumbsUpFill } from "react-icons/bs";
 
 const BookDetails = () => {
   const navigate = useNavigate();
-  const { details } = useSelector((state) => state.bookDetails);
+  const dispatch = useDispatch();
+  
+  const { details, isBid } = useSelector((state) => state.bookDetails);
 
   return (
     <StyledDetails>
+      {isBid && <BidingPanel />}
       <header>
         <SearchBar />
       </header>
@@ -45,9 +51,14 @@ const BookDetails = () => {
             <h4 className="flex">
               Likes: <BsHandThumbsUpFill /> {details.likes.length}
             </h4>
-            <button className="purple-btn">Bid</button>
+            <button
+              className="purple-btn"
+              onClick={() => dispatch(toggleIsBid())}
+            >
+              Bid
+            </button>
           </div>
-          <RelatedBooks/>
+          <RelatedBooks />
         </div>
       </div>
     </StyledDetails>
@@ -74,7 +85,7 @@ const StyledDetails = styled.div`
     .image {
       flex: 1;
       height: 70vh;
-      img{
+      img {
         height: 100%;
       }
     }
@@ -89,8 +100,8 @@ const StyledDetails = styled.div`
       button {
         font-size: 1.2rem;
       }
-      .purple-btn{
-        width: 100%
+      .purple-btn {
+        width: 100%;
       }
     }
     .info {

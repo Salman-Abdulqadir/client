@@ -35,8 +35,11 @@ const StyledRelatedBooks = styled.div`
     background: var(--lightgrey);
     height: 70vh;
     overflow-y: scroll;
-    padding: 2rem;
+    padding: 1rem;
     border-radius: 10px;
+    h3{
+        margin-bottom: 1rem;
+    }
 ` 
 
 export default RelatedBooks
