@@ -8,6 +8,7 @@ import ProjectPage from "./pages/ProjectPage";
 import QuestionsPage from "./pages/QuestionsPage";
 import BlogPage from "./pages/BlogPage";
 import BooksPage from "./pages/BooksPage";
+import Profile from "./pages/Profile";
 
 
 //popups
@@ -29,6 +30,7 @@ function App() {
       <Nav />
       <Routes>
         <Route path="/" element={<ProfilePage />} />
+        <Route path="/profile" element={<Profile />} />
         <Route path="/projects" element={<ProjectPage />} />
         <Route path="/projects/apply/:id" element={<ApplyProject />} />
         <Route path="/projects/:id" element={<ProjectDetails />} />

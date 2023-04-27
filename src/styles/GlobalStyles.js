@@ -52,6 +52,10 @@ export default createGlobalStyle`
         gap: 1rem;
         align-items: center;
     }
+    .justified{
+        justify-content: space-between;
+        gap: 2rem;
+    }
     .flex-col{
         flex-direction: column;
         align-items: flex-start;

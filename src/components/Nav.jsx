@@ -56,8 +56,8 @@ const Nav = () => {
         </Link>
         <h2>Settings</h2>
         <Link
-          className={location === "/account" ? "link active" : "link"}
-          to={"/account"}
+          className={location === "/profile" ? "link active" : "link"}
+          to={"/profile"}
         >
           <ProfileComponent name={"Haben"}/>
         </Link>
