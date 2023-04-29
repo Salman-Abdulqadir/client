@@ -40,6 +40,7 @@ function App() {
         <Route path="/questions/:id" element={<Answer />} />
         <Route path="/blogs" element={<BlogPage />} />
         <Route path="/books" element={<BooksPage />} />
+        <Route path="/books/my-books" element={<BooksPage />} />
         <Route path="/books/:id" element={<BookDetails />} />
         <Route path="/notfound" element={<Error />} />
       </Routes>

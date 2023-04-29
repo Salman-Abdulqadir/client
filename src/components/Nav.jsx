@@ -59,7 +59,7 @@ const Nav = () => {
           className={location === "/profile" ? "link active" : "link"}
           to={"/profile"}
         >
-          <ProfileComponent name={"Haben"}/>
+          <ProfileComponent name={"Salman"}/>
         </Link>
       </ul>
     </StyledNav>

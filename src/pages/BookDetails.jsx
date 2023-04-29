@@ -18,7 +18,7 @@ import { BsHandThumbsUpFill } from "react-icons/bs";
 const BookDetails = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  
+
   const { details, isBid } = useSelector((state) => state.bookDetails);
 
   return (
