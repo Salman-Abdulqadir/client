@@ -16,7 +16,6 @@ import ProjectDetails from "./components/pop-ups/ProjectDetails";
 import Applications from "./components/pop-ups/Applications";
 import CreateProject from "./components/pop-ups/CreateProject";
 import ApplyProject from "./components/pop-ups/ApplyProject";
-import profilePopup from "./components/pop-ups/profilePopup";
 
 // error
 import Error from "./components/Error";
@@ -28,7 +27,6 @@ import BookDetails from "./pages/BookDetails";
 function App() {
   return (
     <div className="App flex">
-      
       <Nav />
       <Routes>
         <Route path="/" element={<ProfilePage />} />
