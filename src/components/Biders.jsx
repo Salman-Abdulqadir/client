@@ -1,7 +1,5 @@
 import React from "react";
 
-//components
-import profile from "../states/profile";
 
 //styled
 import styled from "styled-components";
@@ -24,7 +22,7 @@ const Biders = ({ biders }) => {
             </td>
             <td>{bid.book.title}</td>
             <td>
-              <button className="purple-btn">contact</button>
+              <button className="purple-btn">Accept</button>
             </td>
           </tr>
         ))}

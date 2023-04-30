@@ -4,6 +4,7 @@ const initialState = {
   books: [],
   userBooks: [],
   bidingDetails: {},
+  isShareBook: false,
 };
 
 const booksSlice = createSlice({
@@ -19,8 +20,12 @@ const booksSlice = createSlice({
     setBidingDetails: (state, action) => {
       state.bidingDetails = action.payload;
     },
+    toggleIsShareBook: (state) => {
+      state.isShareBook = !state.isShareBook;
+    },
   },
 });
 
-export const { setBooks, setUserBooks, setBidingDetails } = booksSlice.actions;
+export const { setBooks, setUserBooks, setBidingDetails, toggleIsShareBook } =
+  booksSlice.actions;
 export default booksSlice.reducer;

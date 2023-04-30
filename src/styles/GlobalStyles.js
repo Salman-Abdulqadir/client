@@ -34,7 +34,7 @@ export default createGlobalStyle`
     p{
         color: grey;
     }
-    button, input, textarea{
+    button, input, textarea, select{
         cursor: pointer;
         font-family: inherit;
         background-color: var(--lightgrey);

@@ -49,7 +49,7 @@ const BidingPopup = ({ setIsPopup }) => {
 
 const StyledAsk = styled(StyledPopup)`
   .container {
-    width: 50vw;
+    width: 50vw !important;
     height: 70vh;
     overflow-y: scroll;
     padding: 1.5rem;

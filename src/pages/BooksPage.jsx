@@ -9,7 +9,7 @@ import MyBooks from "./MyBooks";
 
 //redux
 import { useSelector, useDispatch } from "react-redux";
-import { setBooks } from "../states/books";
+import { setBooks, toggleIsShareBook } from "../states/books";
 
 //styles
 import styled from "styled-components";
@@ -19,6 +19,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 // demo
 import { bookData } from "../data/BookData";
+import ShareBook from "../components/pop-ups/ShareBook";
 
 const BooksPage = () => {
   const location = useLocation().pathname;
@@ -29,12 +30,19 @@ const BooksPage = () => {
     dispatch(setBooks(bookData));
   }, [dispatch]);
 
-  const { books } = useSelector((state) => state.books);
+  const { books, isShareBook } = useSelector((state) => state.books);
 
   return (
     <StyledBooksPage>
+      {isShareBook && <ShareBook />}
       <header className="flex">
         <SearchBar />
+        <button
+          className="light-btn"
+          onClick={() => dispatch(toggleIsShareBook())}
+        >
+          Share a Book
+        </button>
         <button
           onClick={() => navigate("/books/my-books")}
           className="purple-btn"
